@@ -467,7 +467,7 @@ int main( void )
         len = sprintf( (char *) buf, HTTP_RESPONSE,
                 mbedtls_ssl_get_ciphersuite( &ssl ) );
 
-        while( cnt++ < 100 )
+        while( cnt++ < 2 )
         {
             while( ( ret = mbedtls_ssl_write( &ssl, buf, len ) ) <= 0 )
             {
