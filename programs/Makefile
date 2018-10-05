@@ -62,6 +62,7 @@ APPS =	aes/aescrypt2$(EXEXT)		aes/crypt_and_hash$(EXEXT)	\
 	ssl/ssl_client1$(EXEXT)		ssl/ssl_client2$(EXEXT)		\
 	ssl/ssl_server$(EXEXT)		ssl/ssl_server2$(EXEXT)		\
 	ssl/ssl_fork_server$(EXEXT)	ssl/mini_client$(EXEXT)		\
+	ssl/ssl_fork_server_DTLS$(EXEXT) \
 	ssl/ssl_mail_client$(EXEXT)	random/gen_entropy$(EXEXT)	\
 	random/gen_random_havege$(EXEXT)				\
 	random/gen_random_ctr_drbg$(EXEXT)				\
@@ -220,6 +221,10 @@ ssl/ssl_server2$(EXEXT): ssl/ssl_server2.c $(DEP)
 ssl/ssl_fork_server$(EXEXT): ssl/ssl_fork_server.c $(DEP)
 	echo "  CC    ssl/ssl_fork_server.c"
 	$(CC) $(LOCAL_CFLAGS) $(CFLAGS) ssl/ssl_fork_server.c   $(LOCAL_LDFLAGS) $(LDFLAGS) -o $@
+
+ssl/ssl_fork_server_DTLS$(EXEXT): ssl/ssl_fork_server_DTLS.c $(DEP)
+	echo "  CC    ssl/ssl_fork_server_DTLS.c"
+	$(CC) $(LOCAL_CFLAGS) $(CFLAGS) ssl/ssl_fork_server_DTLS.c   $(LOCAL_LDFLAGS) $(LDFLAGS) -o $@
 
 ssl/ssl_pthread_server$(EXEXT): ssl/ssl_pthread_server.c $(DEP)
 	echo "  CC    ssl/ssl_pthread_server.c"
